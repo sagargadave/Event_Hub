@@ -1,0 +1,86 @@
+<!-- Events -->
+
+<div class="row mt-5" [id] = "'eve'">
+  <div class="col-md-4 mb-3" *ngFor="let event of events;">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title"  >{{event.name}}</h5>
+        <p class="card-text">{{event.description}}</p>
+        <a  class="btn btn-primary" (click)="getEventname(event.name)">Take Admission</a>       
+      </div>
+      <div class="card-footer text-muted">
+        {{event.Teacher}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Admission Form-->
+
+<div  class="modal fade" id="registrtionForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" [style] = "'margin-left:150px'" >Admission Form</h5><br>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click) ="clearForm()"></button>
+      </div>
+
+      <div class="modal-body">
+        
+          <form [formGroup] = "eventForm">                        
+
+            <div class="mb-3" >
+              <h6 [style] = "'margin-left:10px'"> For {{batchName}} Batch Only {{10-id}} seats available</h6>
+            </div>
+
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" formControlName = "Firstname" placeholder="Your Full Name"  aria-describedby="emailHelp">
+                <small [class.d-none]="eventForm.get('Firstname')?.valid || eventForm.get('Firstname')?.untouched" class="text-danger" >Name is required</small>
+              </div>
+
+              <div class="mb-3">
+                <label  class="form-label">Email</label>
+                <input type="email" class="form-control"   placeholder="abcd@gmail.com" id="exampleInputPassword1" formControlName = "email">
+                <small [class.d-none]= "eventForm.get('email')?.valid || eventForm.get('email')?.untouched" class="text-danger">Enter a valid email</small>                
+              </div>
+              
+              <div class="mb-3">
+                  <label  class="form-label">Mobile</label>
+                  <input type="number" class="form-control"   placeholder="+91-1234567890" id="exampleInputPassword1" formControlName = "phone">
+                  <small [class.d-none]= "eventForm.get('phone')?.valid || eventForm.get('phone')?.untouched" class="text-danger">Enter only 10 Digits</small>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control"   placeholder="Abc road , near abc , pin: 12546" id="exampleInputPassword1" formControlName = "address">
+                <small [class.d-none]= "eventForm.get('address')?.valid || eventForm.get('address')?.untouched" class="text-danger">Addres is required</small>                
+            </div>
+            </form>
+      </div>
+
+      <div class="modal-footer">
+        <button [disabled] ="!isFornValid()"  type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="insertData()" [style] = "'margin-right:200px'">Submit</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Batch Full -->
+
+  <div class="modal fade" id="BatchFull" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"[style] = "'margin-left : 150px'">Batch Full</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>        
+
+        <div class="mb-3">
+          <label [style] = "'margin-left : 20px'">Next {{batchName}} Batch Will Start From March</label>
+        </div>
+
+      </div>
+    </div>  
+  </div>
