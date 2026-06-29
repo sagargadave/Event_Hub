@@ -1,59 +1,85 @@
-# Event
+# EventHub
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+EventHub is a full-stack Event Management System developed using Angular, Node.js, Express.js, and MongoDB. It allows users to browse events, register for events, and manage participation through a secure and responsive web application.
 
-## Development server
+## Overview
 
-To start a local development server, run:
+The application provides a seamless event registration experience with user authentication, seat availability tracking, and secure access to protected features. It follows a client-server architecture where Angular handles the frontend, Node.js and Express.js handle the backend APIs, and MongoDB stores user and event data.
+
+## Features
+
+* User Authentication and Authorization
+* Event Listing and Management
+* Event Registration
+* Real-Time Seat Availability Tracking
+* Protected Routes using JWT Authentication
+* RESTful API Integration
+* Responsive User Interface
+
+## Technologies Used
+
+### Frontend
+
+* Angular
+* TypeScript
+* HTML
+* CSS
+* Bootstrap
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MongoDB
+
+### Authentication
+
+* JWT (JSON Web Token)
+
+## Architecture
+
+```text
+Angular Frontend
+       ↓
+Node.js + Express Backend
+       ↓
+MongoDB Database
+```
+## Installation
+
+```bash
+git clone https://github.com/your-username/EventHub.git
+cd EventHub
+npm install
+```
+
+### Run Frontend
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Run Backend
 
 ```bash
-ng generate component component-name
+node server.js
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Learning Outcomes
 
-```bash
-ng generate --help
-```
+* Angular Component-Based Development
+* Dependency Injection
+* REST API Development
+* MongoDB Database Integration
+* Client-Server Architecture
+* Full-Stack Web Development
 
-## Building
+## Future Improvements
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+* Email Notifications
+* Event Search and Filtering
+* Admin Dashboard
+* Event Analytics and Reports
